@@ -18,34 +18,24 @@
 </defs></svg>
 
 <!-- Bandeau de présentation : propre à la maquette, absent du site final -->
-<aside class="presentation" aria-label="Présentation de la maquette">
+<aside class="presentation presentation--retenue" aria-label="Votre direction artistique">
   <div class="presentation__titre">
-    <strong>Alexandra Pianos · Proposition de direction artistique</strong>
-    <span>Maquette interactive · couleurs, typographies et introductions à découvrir</span>
+    <strong>Alexandra Pianos · Votre direction artistique</strong>
+    <span>Vos trois choix, réunis dans une seule maquette</span>
   </div>
   <div class="choix">
     <div class="choix__groupe">
-      <p class="choix__tete"><span class="choix__libelle" id="libelle-couleurs">Couleurs</span><span class="choix__actif" data-actif="palette">A · Petrol Signature</span></p>
-      <div class="choix__boutons" role="radiogroup" aria-labelledby="libelle-couleurs">
-        <button class="pastille" type="button" role="radio" aria-checked="true" data-choix="petrol" data-nom="A · Petrol Signature" aria-label="Proposition A · Petrol Signature" title="Proposition A · Petrol Signature"><span class="nuancier"><i></i><i></i><i></i><i></i></span></button>
-        <button class="pastille" type="button" role="radio" aria-checked="false" data-choix="bordeaux" data-nom="B · Bordeaux Velours" aria-label="Proposition B · Bordeaux Velours" title="Proposition B · Bordeaux Velours"><span class="nuancier"><i></i><i></i><i></i><i></i></span></button>
-        <button class="pastille" type="button" role="radio" aria-checked="false" data-choix="cobalt" data-nom="C · Cobalt Lumière" aria-label="Proposition C · Cobalt Lumière" title="Proposition C · Cobalt Lumière"><span class="nuancier"><i></i><i></i><i></i><i></i></span></button>
-      </div>
+      <p class="choix__tete"><span class="choix__libelle">Couleurs</span><span class="choix__actif">A · Petrol Signature</span></p>
+      <div class="choix__boutons"><span class="pastille pastille--fixe" aria-hidden="true"><span class="nuancier nuancier--petrol"><i></i><i></i><i></i><i></i></span></span></div>
     </div>
     <div class="choix__groupe">
-      <p class="choix__tete"><span class="choix__libelle" id="libelle-typos">Typographie</span><span class="choix__actif" data-actif="typo">Classique</span></p>
-      <div class="choix__boutons" role="radiogroup" aria-labelledby="libelle-typos">
-        <button class="pastille" type="button" role="radio" aria-checked="true" data-typo-choix="classique" data-nom="Classique" aria-label="Typographie Classique" title="Classique · Cormorant Garamond"><span class="aa aa--classique">Aa</span></button>
-        <button class="pastille" type="button" role="radio" aria-checked="false" data-typo-choix="couture" data-nom="Couture" aria-label="Typographie Couture" title="Couture · Bodoni Moda"><span class="aa aa--couture">Aa</span></button>
-        <button class="pastille" type="button" role="radio" aria-checked="false" data-typo-choix="contemporaine" data-nom="Contemporaine" aria-label="Typographie Contemporaine" title="Contemporaine · Cabinet Grotesk"><span class="aa aa--contemporaine">Aa</span></button>
-      </div>
+      <p class="choix__tete"><span class="choix__libelle">Typographie</span><span class="choix__actif">Classique</span></p>
+      <div class="choix__boutons"><span class="pastille pastille--fixe" aria-hidden="true"><span class="aa aa--classique">Aa</span></span></div>
     </div>
     <div class="choix__groupe">
-      <p class="choix__tete"><span class="choix__libelle" id="libelle-intros">Introduction</span><span class="choix__actif" data-actif="intro">1 · La corde</span></p>
-      <div class="choix__boutons" role="radiogroup" aria-labelledby="libelle-intros">
-        <button class="pastille pastille--chiffre" type="button" role="radio" aria-checked="true" data-intro-choix="corde" data-nom="1 · La corde" aria-label="Introduction 1 · La corde (la voir)" title="Introduction 1 · La corde">1</button>
-        <button class="pastille pastille--chiffre" type="button" role="radio" aria-checked="false" data-intro-choix="touches" data-nom="2 · Les touches" aria-label="Introduction 2 · Les touches (la voir)" title="Introduction 2 · Les touches">2</button>
-        <button class="pastille pastille--chiffre" type="button" role="radio" aria-checked="false" data-intro-choix="onde" data-nom="3 · L'onde" aria-label="Introduction 3 · L'onde (la voir)" title="Introduction 3 · L'onde">3</button>
+      <p class="choix__tete"><span class="choix__libelle">Introduction</span><span class="choix__actif">1 · La corde</span></p>
+      <div class="choix__boutons">
+        <span class="pastille pastille--chiffre pastille--fixe" aria-hidden="true">1</span>
         <button class="revoir" type="button" data-revoir aria-label="Revoir l'introduction" title="Revoir l'introduction">↻</button>
       </div>
     </div>

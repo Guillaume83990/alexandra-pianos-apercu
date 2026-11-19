@@ -15,12 +15,14 @@
   var params;
   try { params = new URLSearchParams(location.search); } catch (e) { params = { get: function () { return null; } }; }
 
-  var palette = palettes[params.get('palette')];
-  var typo = typos[params.get('typo')];
-  var intro = intros[params.get('intro')];
-  if (palette) ecrire('ap-palette', palette); else palette = lire('ap-palette');
-  if (typo) ecrire('ap-typo', typo); else typo = lire('ap-typo');
-  if (intro) ecrire('ap-intro', intro);
+  // 19/11/2026 : direction validée par Alexandra (A · Petrol Signature, Classique, 1 · La corde).
+  // On l'impose partout, quels que soient le lien ou un ancien choix mémorisé dans le navigateur.
+  var palette = 'petrol';
+  var typo = 'classique';
+  var intro = intros[params.get('intro')] ? 'corde' : null;
+  ecrire('ap-palette', palette);
+  ecrire('ap-typo', typo);
+  ecrire('ap-intro', 'corde');
 
   if (valeurs(palettes).indexOf(palette) > -1) html.setAttribute('data-palette', palette);
   if (valeurs(typos).indexOf(typo) > -1) html.setAttribute('data-typo', typo);
