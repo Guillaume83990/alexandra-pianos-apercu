@@ -42,6 +42,14 @@
 [data-choix="petrol"] .nuancier i:nth-child(2) { background: #F5F1E8; }
 [data-choix="petrol"] .nuancier i:nth-child(3) { background: #B89B70; }
 [data-choix="petrol"] .nuancier i:nth-child(4) { background: #58666A; }
+[data-choix="marine"] .nuancier i:nth-child(1) { background: #1B2540; }
+[data-choix="marine"] .nuancier i:nth-child(2) { background: #FBF8F3; }
+[data-choix="marine"] .nuancier i:nth-child(3) { background: #B8743F; }
+[data-choix="marine"] .nuancier i:nth-child(4) { background: #5B6378; }
+[data-choix="ardoise"] .nuancier i:nth-child(1) { background: #33536C; }
+[data-choix="ardoise"] .nuancier i:nth-child(2) { background: #F4F7F9; }
+[data-choix="ardoise"] .nuancier i:nth-child(3) { background: #6E9CBD; }
+[data-choix="ardoise"] .nuancier i:nth-child(4) { background: #1F2E3B; }
 [data-choix="bordeaux"] .nuancier i:nth-child(1) { background: #5C1A25; }
 [data-choix="bordeaux"] .nuancier i:nth-child(2) { background: #F7F1EA; }
 [data-choix="bordeaux"] .nuancier i:nth-child(3) { background: #B9473A; }

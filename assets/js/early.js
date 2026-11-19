@@ -4,7 +4,7 @@
    pour toutes les pages de la maquette). */
 (function () {
   var html = document.documentElement;
-  var palettes = { a: 'petrol', b: 'bordeaux', c: 'cobalt' };
+  var palettes = { a: 'petrol', b: 'marine', c: 'ardoise' };  // 19/11 : deux nouveaux bleus
   var typos = { '1': 'classique', '2': 'couture', '3': 'contemporaine' };
   var intros = { '1': 'corde', '2': 'touches', '3': 'onde' };
 
@@ -15,12 +15,13 @@
   var params;
   try { params = new URLSearchParams(location.search); } catch (e) { params = { get: function () { return null; } }; }
 
-  // 19/11/2026 : direction validée par Alexandra (A · Petrol Signature, Classique, 1 · La corde).
-  // On l'impose partout, quels que soient le lien ou un ancien choix mémorisé dans le navigateur.
-  var palette = 'petrol';
+  // 19/11/2026 : typographie Classique et introduction 1 · La corde VALIDÉES par Alexandra : imposées partout.
+  // Couleurs : elle compare A · Petrol Signature avec deux nouveaux bleus (B · Marine Cognac, C · Ardoise Glacier).
+  var palette = palettes[params.get('palette')];
+  if (palette) ecrire('ap-palette', palette); else palette = lire('ap-palette');
+  if (valeurs(palettes).indexOf(palette) < 0) palette = 'petrol';
   var typo = 'classique';
   var intro = intros[params.get('intro')] ? 'corde' : null;
-  ecrire('ap-palette', palette);
   ecrire('ap-typo', typo);
   ecrire('ap-intro', 'corde');
 

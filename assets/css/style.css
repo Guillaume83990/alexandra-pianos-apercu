@@ -39,7 +39,51 @@
   --bouton-texte: #FCFAF5;
 }
 
-/* Proposition B · Bordeaux Velours : le feutre rouge des marteaux, chaud et intime */
+/* 19/11 : deux nouveaux bleus demandés par Alexandra pour comparer avec A (Petrol Signature).
+   Volontairement bien différents : A = pétrole vert-bleu + crème + laiton (chaud, classique) ;
+   B = marine indigo + cognac (contraste chaud) ; C = ardoise claire + glacier (froid, aérien). */
+
+/* Proposition B · Marine Cognac : le bleu de la nuit et le bois verni d'un piano ancien */
+[data-palette="marine"] {
+  --fond: #FBF8F3;            /* ivoire */
+  --fond-2: #F1EBE1;          /* lin */
+  --encre: #1B2540;           /* bleu marine indigo */
+  --encre-douce: #5B6378;     /* gris bleuté */
+  --em: #A0582D;              /* cognac : mots en italique des titres */
+  --accent: #B8743F;          /* caramel : cordes, filets, détails */
+  --nuit: #1B2540;
+  --profond: #1B2540;
+  --sur-sombre: #F6F0E6;
+  --sur-sombre-doux: rgba(246, 240, 230, .76);
+  --accent-sur-sombre: #D99A64;  /* caramel clair */
+  --trait: rgba(27, 37, 64, .15);
+  --trait-sur-sombre: rgba(246, 240, 230, .22);
+  --ombre: 0 24px 48px -28px rgba(27, 37, 64, .38);
+  --bouton-fond: #1B2540;
+  --bouton-texte: #FBF8F3;
+}
+
+/* Proposition C · Ardoise Glacier : un bleu gris clair, froid et lumineux, sans aucune note chaude */
+[data-palette="ardoise"] {
+  --fond: #F4F7F9;            /* blanc bleuté */
+  --fond-2: #E5ECF1;          /* brume */
+  --encre: #1F2E3B;           /* ardoise nuit */
+  --encre-douce: #566876;     /* gris acier */
+  --em: #3F7096;              /* bleu acier : mots en italique des titres */
+  --accent: #6E9CBD;          /* bleu glacier : cordes, filets, détails */
+  --nuit: #33536C;            /* bleu ardoise, plus clair que A et B */
+  --profond: #33536C;
+  --sur-sombre: #F4F7F9;
+  --sur-sombre-doux: rgba(244, 247, 249, .82);
+  --accent-sur-sombre: #C3DAEA;  /* glacier pâle */
+  --trait: rgba(31, 46, 59, .14);
+  --trait-sur-sombre: rgba(244, 247, 249, .26);
+  --ombre: 0 24px 48px -28px rgba(51, 83, 108, .36);
+  --bouton-fond: #1F2E3B;
+  --bouton-texte: #F4F7F9;
+}
+
+/* (Anciennes propositions du 18/11, plus proposées) /* Proposition B · Bordeaux Velours : le feutre rouge des marteaux, chaud et intime */
 [data-palette="bordeaux"] {
   --fond: #F7F1EA;            /* crème rosée */
   --fond-2: #EFE3D6;          /* sable */

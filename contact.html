@@ -21,19 +21,23 @@
 <aside class="presentation presentation--retenue" aria-label="Votre direction artistique">
   <div class="presentation__titre">
     <strong>Alexandra Pianos · Votre direction artistique</strong>
-    <span>Vos trois choix, réunis dans une seule maquette</span>
+    <span>Typographie et introduction validées · trois bleus à comparer</span>
   </div>
   <div class="choix">
     <div class="choix__groupe">
-      <p class="choix__tete"><span class="choix__libelle">Couleurs</span><span class="choix__actif">A · Petrol Signature</span></p>
-      <div class="choix__boutons"><span class="pastille pastille--fixe" aria-hidden="true"><span class="nuancier nuancier--petrol"><i></i><i></i><i></i><i></i></span></span></div>
+      <p class="choix__tete"><span class="choix__libelle" id="libelle-couleurs">Couleurs</span><span class="choix__actif" data-actif="palette">A · Petrol Signature</span></p>
+      <div class="choix__boutons" role="radiogroup" aria-labelledby="libelle-couleurs">
+        <button class="pastille" type="button" role="radio" aria-checked="true" data-choix="petrol" data-nom="A · Petrol Signature" aria-label="Proposition A · Petrol Signature" title="Proposition A · Petrol Signature"><span class="nuancier"><i></i><i></i><i></i><i></i></span></button>
+        <button class="pastille" type="button" role="radio" aria-checked="false" data-choix="marine" data-nom="B · Marine Cognac" aria-label="Proposition B · Marine Cognac" title="Proposition B · Marine Cognac"><span class="nuancier"><i></i><i></i><i></i><i></i></span></button>
+        <button class="pastille" type="button" role="radio" aria-checked="false" data-choix="ardoise" data-nom="C · Ardoise Glacier" aria-label="Proposition C · Ardoise Glacier" title="Proposition C · Ardoise Glacier"><span class="nuancier"><i></i><i></i><i></i><i></i></span></button>
+      </div>
     </div>
     <div class="choix__groupe">
-      <p class="choix__tete"><span class="choix__libelle">Typographie</span><span class="choix__actif">Classique</span></p>
+      <p class="choix__tete"><span class="choix__libelle">Typographie</span><span class="choix__actif">Classique ✓</span></p>
       <div class="choix__boutons"><span class="pastille pastille--fixe" aria-hidden="true"><span class="aa aa--classique">Aa</span></span></div>
     </div>
     <div class="choix__groupe">
-      <p class="choix__tete"><span class="choix__libelle">Introduction</span><span class="choix__actif">1 · La corde</span></p>
+      <p class="choix__tete"><span class="choix__libelle">Introduction</span><span class="choix__actif">1 · La corde ✓</span></p>
       <div class="choix__boutons">
         <span class="pastille pastille--chiffre pastille--fixe" aria-hidden="true">1</span>
         <button class="revoir" type="button" data-revoir aria-label="Revoir l'introduction" title="Revoir l'introduction">↻</button>

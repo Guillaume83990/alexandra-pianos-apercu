@@ -22,7 +22,7 @@
 
   /* ---------- 1. Bandeau : palettes, typographies, introductions ---------- */
   var CODES = {
-    palette: { petrol: 'a', bordeaux: 'b', cobalt: 'c' },
+    palette: { petrol: 'a', marine: 'b', ardoise: 'c' },  // 19/11 : deux nouveaux bleus
     typo: { classique: '1', couture: '2', contemporaine: '3' },
     intro: { corde: '1', touches: '2', onde: '3' }
   };
