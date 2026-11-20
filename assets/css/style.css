@@ -911,3 +911,76 @@ h1.surtitre { font-weight: 600; }
   .entete .logo__signature { width: 118px; }
 }
 @media (max-width: 360px) { .entete { padding: 0 12px; gap: 6px; } .entete .logo__signature { width: 108px; } .burger { width: 40px; height: 40px; } }
+
+/* =========================================================
+   20/11 soir : page Prestations, rythme des images (demande de Guillaume)
+   Photo d'ouverture qui s'élargit jusqu'au plein écran, duos grande + petite photo,
+   photo large pour la préparation. Jamais d'image sur un texte : la petite photo ne chevauche que la grande.
+   ========================================================= */
+.ouverture { padding: 0 0 clamp(8px, 2vw, 24px); }
+.ouverture__cadre { margin: 0; height: min(86vh, 880px); overflow: hidden; background: var(--fond-2); }
+.ouverture__cadre img { width: 100%; height: 100%; object-fit: cover; will-change: transform; }
+
+.duo { position: relative; width: 100%; max-width: 520px; padding-bottom: clamp(48px, 7vw, 96px); }
+.duo__grande { width: 80%; aspect-ratio: 4 / 5; margin-left: auto; }
+.duo__petite { position: absolute; left: 0; bottom: 0; width: 42%; aspect-ratio: 1; box-shadow: 0 0 0 clamp(6px, .8vw, 12px) var(--fond); }
+.detail:nth-child(even) .duo__grande { margin-left: 0; margin-right: auto; }
+.detail:nth-child(even) .duo__petite { left: auto; right: 0; }
+.photo--large { width: 100%; max-width: 640px; aspect-ratio: 3 / 2; }
+.details--suite { padding-top: clamp(24px, 3vw, 40px); }
+.details--suite .detail:last-child { border-bottom: 0; }
+
+@media (max-width: 900px) {
+  .duo { max-width: 460px; }
+}
+@media (max-width: 760px) {
+  .ouverture__cadre { height: 64vh; }
+  .duo { max-width: none; }
+  .duo__grande { width: 84%; }
+  .duo__petite { width: 46%; }
+}
+/* 20/11 nuit : le menu ne passe plus jamais sur deux lignes (vu à 1 280 px : « Silencieux et connecté »,
+   « Parcours et références », « Zone d'intervention » sur 2 lignes, depuis l'ajout d'Instagram dans l'en-tête).
+   Onglets toujours sur une ligne ; sous 1 240 px, le bouton menu prend le relais (il manquait 150 px à 1 081 px) ;
+   de 1 241 à 1 360 px, espacements un peu resserrés. */
+.menu a { white-space: nowrap; }
+@media (max-width: 1240px) {
+  .menu { display: none; }
+  .burger { display: block; }
+}
+@media (min-width: 1241px) and (max-width: 1360px) {
+  .entete { gap: 20px; }
+  .menu { gap: 22px; }
+  .entete__actions { gap: 14px; }
+}
+/* 20/11 nuit : page Parcours et références, même rythme d'images que Prestations */
+.duo--inverse .duo__grande { margin-left: 0; margin-right: auto; }
+.duo--inverse .duo__petite { left: auto; right: 0; }
+.parcours .duo { max-width: 480px; }
+.parcours .duo__grande { aspect-ratio: 4 / 5; }
+.parcours .duo__grande img { object-position: 60% 0%; }
+.references-section__grille { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(40px, 7vw, 112px); align-items: center; }
+.references-section__visuel { display: flex; justify-content: flex-end; }
+@media (max-width: 900px) {
+  .references-section__grille { grid-template-columns: 1fr; }
+  .references-section__visuel { justify-content: flex-start; }
+}
+/* 20/11 tard : textes de référencement des pages Parcours et Prestations */
+.parcours__texte { margin-bottom: clamp(40px, 5vw, 64px); }
+.parcours__texte > p:not(.surtitre):not(.a-valider) { max-width: 560px; color: var(--encre-douce); font-size: 17px; }
+.parcours__texte .titre { margin-bottom: 22px; }
+.references__texte { max-width: 560px; margin: 0 0 28px; color: var(--encre-douce); font-size: 17px; }
+/* 20/11 : page Zone d'intervention complète (textes de référencement local, étapes du rendez-vous) */
+.zone-texte h3 { margin: 30px 0 6px; font: italic 300 24px/1.3 var(--titres); color: var(--encre); }
+.zone-texte > p:not(.surtitre):not(.a-valider) { max-width: 560px; color: var(--encre-douce); font-size: 17px; }
+.zone-texte .titre { margin-bottom: 22px; }
+.rendez-vous { padding: clamp(72px, 9vw, 130px) var(--marge); background: var(--fond-2); }
+.rendez-vous__etapes { list-style: none; margin: clamp(32px, 4vw, 56px) auto 0; padding: 0; max-width: 1120px; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(28px, 4vw, 64px); }
+.rendez-vous__etapes span { display: block; margin-bottom: 12px; font: italic 300 30px/1 var(--titres); color: var(--encre-douce); }
+.rendez-vous__etapes h3 { margin: 0 0 8px; font-family: var(--titres); font-weight: var(--titre-graisse); font-size: 28px; line-height: 1.15; }
+.rendez-vous__etapes p { margin: 0; color: var(--encre-douce); font-size: 16px; }
+@media (max-width: 900px) { .rendez-vous__etapes { grid-template-columns: 1fr; } }
+/* 20/11 : textes de référencement ajoutés sur l'accueil */
+.tete-section--centre .tete-section__chapo { margin-left: auto; margin-right: auto; }
+.presentation-alexandra__suite { margin-top: 18px; }
+.zone__texte { max-width: 620px; margin: 22px auto 0; color: var(--encre-douce); text-align: center; }

@@ -339,6 +339,23 @@
     revelerPhoto(photo, 0, true);
   });
 
+  /* ---- 20/11 soir, page Prestations ----
+     Photo d'ouverture : elle part encadrée, puis s'élargit jusqu'au plein écran en même temps qu'on défile.
+     Inspiré de « Scroll Reveal Image » (21st.dev, unlumen), recodé en GSAP. */
+  document.querySelectorAll('[data-ouverture]').forEach(function (cadre) {
+    var img = cadre.querySelector('img');
+    gsap.fromTo(cadre, { clipPath: 'inset(4% 14% 4% 14% round 3px)' }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'none',
+      scrollTrigger: { trigger: cadre, start: 'top 80%', end: 'top 8%', scrub: 1.2 } });
+    gsap.fromTo(img, { scale: 1.16 }, { scale: 1, ease: 'none',
+      scrollTrigger: { trigger: cadre, start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+  /* La petite photo d'un duo glisse plus vite que la grande : un peu de profondeur, sans jamais toucher le texte.
+     Inspiré de « Parallax Image » (21st.dev, pulkitxm). */
+  document.querySelectorAll('[data-petite]').forEach(function (petite) {
+    gsap.fromTo(petite, { y: 36 }, { y: -36, ease: 'none',
+      scrollTrigger: { trigger: petite.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+
   /* ---- Textes et listes, par petits groupes ---- */
   var autres = Array.prototype.filter.call(document.querySelectorAll('[data-apparition]'), function (el) {
     return !(hero && hero.contains(el));
