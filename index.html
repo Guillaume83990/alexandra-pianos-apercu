@@ -18,7 +18,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/CormorantGaramond-Light.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/manrope-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/img/accord-piano-a-queue.webp" as="image">
+<link rel="preload" href="assets/img/hero-piano.webp" as="image" media="(min-width: 761px)">
+<link rel="preload" href="assets/img/hero-piano-mobile.webp" as="image" media="(max-width: 760px)">
 <link rel="stylesheet" href="assets/css/style.css">
 <script src="assets/js/early.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://www.alexandrapianos.com/#entreprise","name":"Alexandra Pianos","description":"Technicienne accordeuse de piano à domicile dans le Golfe de Saint-Tropez (Var) : accord, réparation, entretien, réglages, harmonisation et préparation de pianos droits et de pianos à queue, pose de boîtiers AdSilent (piano silencieux) et de boîtiers connectés. Devis sur mesure.","url":"https://www.alexandrapianos.com/","telephone":"+33651349141","image":"https://www.alexandrapianos.com/assets/img/accord-piano-a-queue.webp","logo":"https://www.alexandrapianos.com/favicon.svg","founder":{"@type":"Person","name":"Alexandra Fourrière","jobTitle":"Technicienne accordeuse de piano"},"areaServed":[{"@type":"AdministrativeArea","name":"Golfe de Saint-Tropez"},{"@type":"City","name":"Sainte-Maxime"},{"@type":"City","name":"Saint-Tropez"},{"@type":"City","name":"Grimaud"},{"@type":"City","name":"Cogolin"},{"@type":"City","name":"Gassin"},{"@type":"City","name":"Ramatuelle"},{"@type":"City","name":"La Croix-Valmer"},{"@type":"City","name":"Cavalaire-sur-Mer"},{"@type":"City","name":"La Garde-Freinet"},{"@type":"City","name":"Le Plan-de-la-Tour"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"19:00"}],"knowsAbout":["Accord de piano","Réparation de piano","Entretien de piano","Réglage de piano","Harmonisation de piano","Préparation de piano pour concert","Piano silencieux AdSilent","Retouche du vernis de piano","Acoustique de la pièce","Piano droit","Piano à queue"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Savoir-faire","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Accord de piano"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Réparation de piano"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Entretien de piano"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Réglages de piano"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Harmonisation de piano"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Pose de boîtiers AdSilent"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Préparation de piano"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Retouche des éclats et rayures du vernis à domicile"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Panneaux acoustiques sur mesure"}},{"@type":"Offer","price":"22.50","priceCurrency":"EUR","itemOffered":{"@type":"Product","name":"Produit d'entretien pour pianos laqués polyester, flacon de 125 ml"}}]},"sameAs":["https://www.instagram.com/alexandrapianos/","https://www.golfe-saint-tropez-information.com/fr/services/facteur-et-ou-restaurateur-de-pianos/sainte-maxime/alexandra-pianos-7298688","https://cotedazurfrance.fr/offres/alexandra-pianos-sainte-maxime-fr-5462747/"]},{"@type":"WebSite","@id":"https://www.alexandrapianos.com/#site","url":"https://www.alexandrapianos.com/","name":"Alexandra Pianos","inLanguage":"fr-FR","publisher":{"@id":"https://www.alexandrapianos.com/#entreprise"}}]}</script>
@@ -40,6 +41,7 @@
     <a href="contact.html">Contact</a>
   </nav>
   <div class="entete__actions">
+    <a class="reseau" href="https://www.instagram.com/alexandrapianos/" target="_blank" rel="noopener" aria-label="Instagram d'Alexandra Pianos (nouvel onglet)" title="Instagram @alexandrapianos"><svg class="icone-reseau" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg></a>
     <div class="langues" aria-label="Langue du site">
       <button type="button" class="langue est-active" aria-pressed="true">FR</button>
       <span aria-hidden="true">/</span>
@@ -60,7 +62,10 @@
 
 <main id="contenu">
 
-  <section class="hero" id="accueil" aria-labelledby="titre-hero">
+  <section class="hero hero--plein" id="accueil" aria-labelledby="titre-hero">
+    <figure class="photo photo--plein" data-photo>
+      <picture><source media="(max-width: 760px)" srcset="assets/img/hero-piano-mobile.webp" width="900" height="1200"><img src="assets/img/hero-piano.webp" width="1600" height="1200" fetchpriority="high" alt="Les cordes d'un piano à queue et leur tresse de feutre, vues de près"></picture>
+    </figure>
     <div class="hero__texte">
       <h1 class="surtitre" id="titre-hero" data-apparition>Accordeuse de piano · Sainte-Maxime, Saint-Tropez et tout le Golfe</h1>
       <p id="accroche-hero" class="titre titre--hero" data-lignes>
@@ -76,19 +81,11 @@
       </div>
       <p class="a-valider " data-apparition>Titre et textes proposés, à valider ensemble</p>
     </div>
-    <div class="hero__visuel">
-      <figure class="photo photo--hero" data-photo>
-        <img src="assets/img/accord-piano-a-queue.webp" width="900" height="1200" fetchpriority="high" alt="Alexandra accorde un piano à queue, son reflet dans le couvercle laqué">
-        <!-- L'accordeur : l'aiguille oscille puis se pose sur « juste » (écho de « Un piano juste. ») -->
-        <div class="diapason" aria-hidden="true" data-diapason>
+    <div class="diapason" aria-hidden="true" data-diapason>
           <span class="diapason__la">La · 440 Hz</span>
           <span class="diapason__echelle"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="diapason__centre"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><b class="diapason__aiguille"></b></span>
           <span class="diapason__juste">juste</span>
         </div>
-      </figure>
-      <div class="touches" aria-hidden="true" data-touches><i></i><i></i><b></b><i></i><i></i><i></i></div>
-      <p class="legende" data-apparition><span>À domicile</span>Particuliers, écoles de musique, conservatoires et artistes.</p>
-    </div>
   </section>
 
   <section class="presentation-alexandra" aria-labelledby="titre-presentation">
@@ -108,8 +105,8 @@
     </div>
   </section>
 
-  <section class="interlude interlude--sombre" aria-labelledby="citation-harmonie">
-    
+  <section class="interlude interlude--sombre interlude--image" aria-labelledby="citation-harmonie">
+    <div class="interlude__image" data-interlude-image><img src="assets/img/interlude-harmonie.webp" alt="" loading="lazy"></div>
     <figure class="interlude__contenu">
       <svg class="corde " data-corde viewBox="0 0 600 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 12 L600 12" pathLength="1"/></svg>
       <blockquote class="interlude__citation"><p id="citation-harmonie" class="titre interlude__texte" data-lignes>
@@ -216,8 +213,8 @@
     <p class="a-valider a-valider--centre" data-apparition>Chiffres tirés de votre livret d'entretien, à valider</p>
   </section>
 
-  <section class="interlude" aria-labelledby="citation-silence">
-    
+  <section class="interlude interlude--image" aria-labelledby="citation-silence">
+    <div class="interlude__image" data-interlude-image><img src="assets/img/interlude-silence.webp" alt="" loading="lazy"></div>
     <figure class="interlude__contenu">
       <svg class="corde " data-corde viewBox="0 0 600 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 12 L600 12" pathLength="1"/></svg>
       <blockquote class="interlude__citation"><p id="citation-silence" class="titre interlude__texte" data-lignes>
@@ -300,7 +297,7 @@
   <div class="pied__haut">
     <a class="marque marque--pied" href="index.html" aria-label="Alexandra Pianos, accueil"><span class="logo logo--pied"><svg class="logo__mono" viewBox="26 27 1425 1439" aria-hidden="true" focusable="false"><use href="#logo-mono"/></svg><svg class="logo__signature" viewBox="189 104 2547 328" aria-hidden="true" focusable="false"><use href="#logo-signature"/></svg></span></a>
     <div class="pied__metier"><p>Technicienne accordeuse de piano · Golfe de Saint-Tropez</p><p class="savoir-faire savoir-faire--pied"><span>Accord</span><span>Réparation</span><span>Entretien</span><span>Réglages</span><span>Harmonisation</span><span>Pose de boîtiers AdSilent</span><span class="savoir-faire__devis">Devis sur mesure</span></p></div>
-    <p><a class="lien" href="tel:+33651349141">06 51 34 91 41</a><br>Du lundi au samedi, 9 h à 19 h</p>
+    <p><a class="lien" href="tel:+33651349141">06 51 34 91 41</a><br>Du lundi au samedi, 9 h à 19 h<br><a class="lien lien--reseau" href="https://www.instagram.com/alexandrapianos/" target="_blank" rel="noopener"><svg class="icone-reseau" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>Instagram @alexandrapianos</a></p>
   </div>
   <div class="pied__bas">
     <nav aria-label="Pages du site"><a href="index.html">Accueil</a><a href="prestations.html">Prestations</a><a href="silencieux-et-connecte.html">Silencieux et connecté</a><a href="parcours-et-references.html">Parcours et références</a><a href="zone-d-intervention.html">Zone d'intervention</a><a href="contact.html">Contact</a><a href="mentions-legales.html">Mentions légales</a></nav>

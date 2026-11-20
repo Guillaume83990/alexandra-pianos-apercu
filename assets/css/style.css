@@ -891,3 +891,20 @@ h1.surtitre { font-weight: 600; }
 @media (max-width: 760px) {
   .photo--plein::after { background: linear-gradient(0deg, rgba(24, 59, 66, .94) 0%, rgba(24, 59, 66, .78) 55%, rgba(24, 59, 66, .7) 100%); }
 }
+
+/* 20/11 : son Instagram dans l'en-tête et le pied de page */
+.reseau { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; color: var(--encre); transition: color .35s, background-color .35s; }
+.reseau:hover { color: var(--accent); background: var(--fond-2); }
+.icone-reseau { width: 19px; height: 19px; display: block; }
+.lien--reseau { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; }
+.lien--reseau .icone-reseau { width: 16px; height: 16px; }
+/* Petits téléphones : l'en-tête se resserre pour garder Instagram, FR / EN et le menu */
+@media (max-width: 420px) {
+  .entete { gap: 10px; }
+  .entete__actions { gap: 6px; }
+  .reseau { width: 32px; height: 32px; }
+  .langues { font-size: 11.5px; gap: 2px; }
+  .entete .logo { gap: 8px; }
+  .entete .logo__signature { width: 118px; }
+}
+@media (max-width: 360px) { .entete { padding: 0 12px; gap: 6px; } .entete .logo__signature { width: 108px; } .burger { width: 40px; height: 40px; } }
