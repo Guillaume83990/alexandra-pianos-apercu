@@ -1,4 +1,4 @@
-/* Alexandra Pianos · maquette de direction artistique
+/* Alexandra Pianos · site (production, à partir de la maquette validée le 20/11/2026)
    1. Bandeau : palettes, typographies, introductions   2. Menu, FR / EN, formulaire (maquette)
    3. Animations du site : corde, touches, ondes, photos, titres (GSAP + ScrollTrigger)
    4. Les trois introductions (jouées à l'arrivée sur l'accueil, ou depuis le bandeau) */
@@ -22,7 +22,7 @@
 
   /* ---------- 1. Bandeau : palettes, typographies, introductions ---------- */
   var CODES = {
-    palette: { petrol: 'a', marine: 'b', ardoise: 'c' },  // 19/11 : deux nouveaux bleus
+    palette: { petrol: 'a' },  // direction validée : A · Petrol Signature
     typo: { classique: '1', couture: '2', contemporaine: '3' },
     intro: { corde: '1', touches: '2', onde: '3' }
   };
@@ -164,7 +164,7 @@
     formulaire.addEventListener('submit', function (e) {
       e.preventDefault();
       var retour = formulaire.querySelector('.formulaire__retour');
-      if (retour) retour.textContent = 'Maquette : sur le site, votre demande arrivera directement dans votre boîte Gmail.';
+      if (retour) retour.textContent = 'Formulaire en cours de branchement : à la mise en ligne, votre demande arrivera directement dans la boîte d’Alexandra.';
     });
   }
 
@@ -244,11 +244,25 @@
     return gsap.to(lignes, { yPercent: 0, duration: 1.15, ease: 'expo.out', stagger: 0.12, delay: delai || 0 });
   }
 
-  /* Révélation photographique + profondeur au défilement */
-  function revelerPhoto(figure, delai) {
+  /* Révélation photographique : un rideau qui se lève (écho de l'introduction « La corde »),
+     la photo se pose en douceur, puis profondeur au défilement. Inspiré de « Mask Reveal » (21st.dev, balick). */
+  // 20/11 (retour de Guillaume : « les images arrivent trop vite ») : rideau lent et doux.
+  // Photo du haut : au chargement, en 2,6 s. Autres photos : le rideau suit le défilement (fluide, réversible).
+  function revelerPhoto(figure, delai, auDefilement) {
     var img = figure.querySelector('img');
-    gsap.fromTo(img, { opacity: 0, scale: 1.16, y: 40 },
-      { opacity: 1, scale: 1.08, y: 0, duration: 1.9, ease: 'expo.out', delay: delai || 0 });
+    if (auDefilement) {
+      gsap.timeline({ scrollTrigger: { trigger: figure, start: 'top 95%', end: 'top 30%', scrub: 1.4 } })
+        .fromTo(img, { opacity: 1, clipPath: 'inset(100% 0% 0% 0%)', scale: 1.3 },
+          { clipPath: 'inset(0% 0% 0% 0%)', scale: 1.06, ease: 'power1.inOut' });
+      // Profondeur : la photo glisse un peu moins vite que la page
+      gsap.fromTo(img, { yPercent: 4 }, { yPercent: -4, ease: 'none',
+        scrollTrigger: { trigger: figure, start: 'top bottom', end: 'bottom top', scrub: true } });
+      return;
+    }
+    gsap.timeline({ delay: delai || 0 })
+      .fromTo(img, { opacity: 1, clipPath: 'inset(100% 0% 0% 0%)' },
+        { clipPath: 'inset(0% 0% 0% 0%)', duration: 2.6, ease: 'power3.inOut' })
+      .fromTo(img, { scale: 1.3 }, { scale: 1.06, duration: 3.6, ease: 'power2.out', clearProps: 'clipPath' }, 0);
     gsap.fromTo(img, { yPercent: 3 }, { yPercent: -3, ease: 'none',
       scrollTrigger: { trigger: figure, start: 'top bottom', end: 'bottom top', scrub: true } });
   }
@@ -274,7 +288,38 @@
     gsap.to(touches, { y: function (i) { return (i % 3) * -14 - 8; }, ease: 'none',
       scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
     apparaitre(hero.querySelectorAll('.hero__visuel [data-apparition]'), 1.2);
+    // Ses savoir-faire apparaissent l'un après l'autre, comme un arpège
+    gsap.fromTo(hero.querySelectorAll('.savoir-faire > span'), { opacity: 0, y: 8 },
+      { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', stagger: 0.09, delay: 0.75 });
+    accorder(2.3);
   }
+
+  /* L'accordeur sur la photo du haut : les graduations s'allument depuis le centre,
+     l'aiguille oscille de moins en moins, puis se pose sur « juste ». */
+  var diapason = hero && hero.querySelector('[data-diapason]');
+  if (diapason) {
+    gsap.set(diapason, { opacity: 0 });
+    gsap.set(diapason.querySelectorAll('.diapason__echelle i'), { scaleY: 0, transformOrigin: '50% 100%' });
+    gsap.set(diapason.querySelector('.diapason__aiguille'), { left: '8%' });
+    gsap.set(diapason.querySelector('.diapason__juste'), { opacity: 0, x: -6 });
+  }
+  function accorder(delai) {
+    if (!diapason) return;
+    var aiguille = diapason.querySelector('.diapason__aiguille');
+    gsap.timeline({ delay: delai })
+      .to(diapason, { opacity: 1, duration: 0.9, ease: 'power2.out' })
+      .to(diapason.querySelectorAll('.diapason__echelle i'), { scaleY: 1, duration: 0.6, ease: 'power2.out',
+        stagger: { each: 0.035, from: 'center' } }, 0.2)
+      .to(aiguille, { left: '80%', duration: 0.75, ease: 'sine.inOut' }, 0.5)
+      .to(aiguille, { left: '30%', duration: 0.6, ease: 'sine.inOut' })
+      .to(aiguille, { left: '64%', duration: 0.5, ease: 'sine.inOut' })
+      .to(aiguille, { left: '44%', duration: 0.45, ease: 'sine.inOut' })
+      .to(aiguille, { left: '53%', duration: 0.4, ease: 'sine.inOut' })
+      .to(aiguille, { left: '50%', duration: 0.5, ease: 'power2.out' })
+      .add(function () { diapason.classList.add('est-juste'); })
+      .to(diapason.querySelector('.diapason__juste'), { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out' }, '-=0.1');
+  }
+  if (hero) gsap.set(hero.querySelectorAll('.savoir-faire > span'), { opacity: 0 });
   if (hero) gsap.set(hero.querySelectorAll('.ligne > span'), { yPercent: 105, y: 0 });
 
   /* ---- Hors de l'accueil : chaque corde se tend, chaque titre monte, chaque photo se révèle à son arrivée ---- */
@@ -291,8 +336,7 @@
   });
   document.querySelectorAll('[data-photo]').forEach(function (photo) {
     if (!horsHero(photo)) return;
-    gsap.set(photo.querySelector('img'), { opacity: 0 });
-    ST.create({ trigger: photo, start: 'top 90%', once: true, onEnter: function () { revelerPhoto(photo, 0); } });
+    revelerPhoto(photo, 0, true);
   });
 
   /* ---- Textes et listes, par petits groupes ---- */
@@ -316,6 +360,126 @@
     }
   });
 
+  /* ---- Texte « Bienvenue » : il s'éclaire mot à mot pendant la lecture.
+          Inspiré de « Text Reveal » au défilement (21st.dev, ddoemonn / wensity) ---- */
+  document.querySelectorAll('[data-mots]').forEach(function (p) {
+    var mots = p.textContent.trim().split(/\s+/);
+    p.textContent = '';
+    mots.forEach(function (m, i) {
+      var s = document.createElement('span');
+      s.className = 'mot';
+      s.textContent = m;
+      p.appendChild(s);
+      if (i < mots.length - 1) p.appendChild(document.createTextNode(' '));
+    });
+    gsap.fromTo(p.querySelectorAll('.mot'), { opacity: 0.16 }, { opacity: 1, ease: 'none', stagger: 0.05,
+      scrollTrigger: { trigger: p, start: 'top 82%', end: 'bottom 52%', scrub: 0.6 } });
+  });
+
+  /* ---- Les chiffres des conseils montent jusqu'à leur valeur. Inspiré de « Count Up » (21st.dev, unlumen) ---- */
+  document.querySelectorAll('[data-compte]').forEach(function (el) {
+    var cible = parseInt(el.textContent, 10);
+    if (isNaN(cible)) return;
+    var etat = { v: 0 };
+    el.textContent = '0';
+    ST.create({ trigger: el, start: 'top 88%', once: true, onEnter: function () {
+      gsap.to(etat, { v: cible, duration: 1.9, ease: 'power3.out', delay: 0.15,
+        onUpdate: function () { el.textContent = Math.round(etat.v); } });
+    } });
+  });
+
+  /* ---- Bandeau des savoir-faire : il défile lentement, s'accélère un peu avec le défilement de la page.
+          Inspiré de « Infinite Marquee » (21st.dev, wensity) ---- */
+  var defile = document.querySelector('[data-defile]');
+  if (defile) {
+    var piste = defile.querySelector('.defile__piste');
+    var boucle = gsap.to(piste, { xPercent: -50, duration: 48, ease: 'none', repeat: -1, paused: true });
+    ST.create({ trigger: defile, start: 'top bottom', end: 'bottom top',
+      onToggle: function (s) { if (s.isActive) boucle.play(); else boucle.pause(); },
+      onUpdate: function (s) {
+        var elan = Math.min(Math.abs(s.getVelocity()) / 400, 4);
+        gsap.to(boucle, { timeScale: 1 + elan, duration: 0.25, overwrite: true,
+          onComplete: function () { gsap.to(boucle, { timeScale: 1, duration: 1.2, ease: 'power2.out' }); } });
+      } });
+  }
+
+  /* ---- Prestations « en partition » : les cordes se tendent l'une après l'autre, les noms montent,
+          chaque corde vibre au survol, et la photo de la prestation s'affiche dans sa propre colonne ---- */
+  var portee = document.querySelector('[data-portee]');
+  if (portee) {
+    var cordesPortee = Array.prototype.map.call(portee.querySelectorAll('[data-corde-portee]'), creerCorde);
+    var lignes = portee.querySelectorAll('.portee__ligne');
+    gsap.set(portee.querySelectorAll('.portee__nom span'), { yPercent: 110 });
+    gsap.set(portee.querySelectorAll('.portee__num, .portee__texte, .portee__note, .portee__fleche'), { opacity: 0, y: 14 });
+    ST.create({ trigger: portee, start: 'top 82%', once: true, onEnter: function () {
+      cordesPortee.forEach(function (c, i) { tendreCorde(c, i * 0.22); });
+      lignes.forEach(function (l, i) {
+        var d = 0.25 + i * 0.22;
+        gsap.to(l.querySelector('.portee__nom span'), { yPercent: 0, duration: 1.3, ease: 'expo.out', delay: d });
+        gsap.to(l.querySelectorAll('.portee__num, .portee__texte, .portee__note, .portee__fleche'),
+          { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out', stagger: 0.08, delay: d + 0.15 });
+      });
+    } });
+
+    // 2e version (retour de Guillaume : jamais d'image sur le texte) : la photo vit dans sa propre colonne,
+    // fixe pendant le défilement. Elle change en fondu selon la prestation survolée, ou celle qui passe
+    // au centre de l'écran. Inspiré de « Scroll Reveal Content » (21st.dev, abui), sélection du 30/10.
+    lignes.forEach(function (l, i) {
+      l.addEventListener('mouseenter', function () { if (cordesPortee[i + 1] && cordesPortee[i + 1].tendue) cordesPortee[i + 1].pincer(6); });
+    });
+    var cadre = portee.querySelector('[data-cadre]');
+    if (cadre) {
+      var images = {};
+      cadre.querySelectorAll('[data-cadre-img]').forEach(function (i) { images[i.getAttribute('data-cadre-img')] = i; });
+      var legende = [portee.querySelector('[data-cadre-num]'), portee.querySelector('[data-cadre-nom]')];
+      var courante = 0;
+      lignes[0].classList.add('est-active');
+      // Le cadre se dévoile comme les autres photos : un rideau lié au défilement
+      gsap.fromTo(cadre, { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', ease: 'power1.inOut',
+        scrollTrigger: { trigger: cadre, start: 'top 95%', end: 'top 45%', scrub: 1.4 } });
+      var montrer = function (i) {
+        if (i === courante) return;
+        courante = i;
+        var l = lignes[i], cle = l.getAttribute('data-apercu');
+        Object.keys(images).forEach(function (k) {
+          gsap.to(images[k], { opacity: k === cle ? 1 : 0, scale: k === cle ? 1 : 1.08, duration: 1.1, ease: 'power2.inOut', overwrite: true });
+        });
+        lignes.forEach(function (x, j) { x.classList.toggle('est-active', j === i); });
+        gsap.timeline()
+          .to(legende, { yPercent: -100, opacity: 0, duration: 0.3, ease: 'power2.in', overwrite: true })
+          .add(function () {
+            legende[0].textContent = l.querySelector('.portee__num').textContent;
+            legende[1].textContent = l.querySelector('.portee__nom').textContent.trim();
+          })
+          .fromTo(legende, { yPercent: 100, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.55, ease: 'power3.out' });
+      };
+      lignes.forEach(function (l, i) {
+        l.addEventListener('mouseenter', function () { montrer(i); });
+        l.addEventListener('focus', function () { montrer(i); });
+        ST.create({ trigger: l, start: 'top 55%', end: 'bottom 55%', onToggle: function (s) { if (s.isActive) montrer(i); } });
+      });
+    }
+  }
+
+  /* ---- Respirations plein écran : l'image se dévoile lentement et recule doucement pendant le défilement ---- */
+  document.querySelectorAll('[data-interlude-image]').forEach(function (bloc) {
+    var img = bloc.querySelector('img');
+    gsap.fromTo(img, { scale: 1.18, yPercent: -5 }, { scale: 1.02, yPercent: 5, ease: 'none',
+      scrollTrigger: { trigger: bloc.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
+    gsap.fromTo(bloc, { clipPath: 'inset(12% 8% 12% 8%)' }, { clipPath: 'inset(0% 0% 0% 0%)', ease: 'power1.inOut',
+      scrollTrigger: { trigger: bloc.parentElement, start: 'top 90%', end: 'top 20%', scrub: 1.4 } });
+  });
+
+  /* ---- Les communes s'allument l'une après l'autre, comme des touches jouées ---- */
+  var listeCommunes = document.querySelector('.communes');
+  if (listeCommunes) {
+    var accent = getComputedStyle(html).getPropertyValue('--accent').trim() || '#B89B70';
+    ST.create({ trigger: listeCommunes, start: 'top 75%', once: true, onEnter: function () {
+      gsap.to(listeCommunes.querySelectorAll('li'), { color: accent, duration: 0.35, ease: 'power1.out',
+        stagger: { each: 0.11, yoyo: true, repeat: 1 }, delay: 0.6, clearProps: 'color' });
+    } });
+  }
+
   /* ---- Les ondes : elles se propagent quand on passe d'une section à l'autre ---- */
   if (ondes) {
     var etatOndes = { phase: 0, ampleur: 8, cible: 8 };
@@ -328,7 +492,8 @@
     ST.create({
       trigger: ondes, start: 'top bottom', end: 'bottom top',
       onToggle: function (s) { if (s.isActive) gsap.ticker.add(tourner); else gsap.ticker.remove(tourner); },
-      onUpdate: function (s) { etatOndes.cible = 8 + Math.sin(s.progress * Math.PI) * 40; }
+      // 20/11 : le son s'apaise jusqu'au silence, juste avant la section « Jouer en silence »
+      onUpdate: function (s) { etatOndes.cible = 0.6 + 46 * Math.pow(1 - s.progress, 1.6); }
     });
   }
 

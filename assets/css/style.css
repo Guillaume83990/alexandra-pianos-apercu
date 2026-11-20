@@ -1,20 +1,12 @@
 /* =========================================================
-   Alexandra Pianos · maquette de direction artistique
-   Couleurs et typographies passent toutes par des variables :
-   un bloc [data-palette="…"] par palette, un bloc [data-typo="…"]
-   par typographie, et un bouton dans le bandeau pour chacun.
+   Alexandra Pianos · site (production, à partir de la maquette validée le 20/11/2026)
+   Direction validée : couleurs A · Petrol Signature, typographie Classique, introduction La corde.
    ========================================================= */
 
 @font-face { font-family: "Cormorant Garamond"; src: url("../fonts/CormorantGaramond-Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
 @font-face { font-family: "Cormorant Garamond"; src: url("../fonts/CormorantGaramond-LightItalic.woff2") format("woff2"); font-weight: 300; font-style: italic; font-display: swap; }
 @font-face { font-family: "Cormorant Garamond"; src: url("../fonts/CormorantGaramond-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "Manrope"; src: url("../fonts/manrope-400-normal.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
-@font-face { font-family: "Bodoni Moda"; src: url("../fonts/BodoniModa-normal.woff2") format("woff2"); font-weight: 400 900; font-style: normal; font-display: swap; }
-@font-face { font-family: "Bodoni Moda"; src: url("../fonts/BodoniModa-italic.woff2") format("woff2"); font-weight: 400 900; font-style: italic; font-display: swap; }
-@font-face { font-family: "Jost"; src: url("../fonts/jost-400-normal.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
-@font-face { font-family: "Cabinet Grotesk"; src: url("../fonts/CabinetGrotesk-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
-@font-face { font-family: "Switzer"; src: url("../fonts/Switzer-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "Switzer"; src: url("../fonts/Switzer-Medium.woff2") format("woff2"); font-weight: 500 600; font-style: normal; font-display: swap; }
 
 /* ---------- Palettes ---------- */
 
@@ -39,90 +31,6 @@
   --bouton-texte: #FCFAF5;
 }
 
-/* 19/11 : deux nouveaux bleus demandés par Alexandra pour comparer avec A (Petrol Signature).
-   Volontairement bien différents : A = pétrole vert-bleu + crème + laiton (chaud, classique) ;
-   B = marine indigo + cognac (contraste chaud) ; C = ardoise claire + glacier (froid, aérien). */
-
-/* Proposition B · Marine Cognac : le bleu de la nuit et le bois verni d'un piano ancien */
-[data-palette="marine"] {
-  --fond: #FBF8F3;            /* ivoire */
-  --fond-2: #F1EBE1;          /* lin */
-  --encre: #1B2540;           /* bleu marine indigo */
-  --encre-douce: #5B6378;     /* gris bleuté */
-  --em: #A0582D;              /* cognac : mots en italique des titres */
-  --accent: #B8743F;          /* caramel : cordes, filets, détails */
-  --nuit: #1B2540;
-  --profond: #1B2540;
-  --sur-sombre: #F6F0E6;
-  --sur-sombre-doux: rgba(246, 240, 230, .76);
-  --accent-sur-sombre: #D99A64;  /* caramel clair */
-  --trait: rgba(27, 37, 64, .15);
-  --trait-sur-sombre: rgba(246, 240, 230, .22);
-  --ombre: 0 24px 48px -28px rgba(27, 37, 64, .38);
-  --bouton-fond: #1B2540;
-  --bouton-texte: #FBF8F3;
-}
-
-/* Proposition C · Ardoise Glacier : un bleu gris clair, froid et lumineux, sans aucune note chaude */
-[data-palette="ardoise"] {
-  --fond: #F4F7F9;            /* blanc bleuté */
-  --fond-2: #E5ECF1;          /* brume */
-  --encre: #1F2E3B;           /* ardoise nuit */
-  --encre-douce: #566876;     /* gris acier */
-  --em: #3F7096;              /* bleu acier : mots en italique des titres */
-  --accent: #6E9CBD;          /* bleu glacier : cordes, filets, détails */
-  --nuit: #33536C;            /* bleu ardoise, plus clair que A et B */
-  --profond: #33536C;
-  --sur-sombre: #F4F7F9;
-  --sur-sombre-doux: rgba(244, 247, 249, .82);
-  --accent-sur-sombre: #C3DAEA;  /* glacier pâle */
-  --trait: rgba(31, 46, 59, .14);
-  --trait-sur-sombre: rgba(244, 247, 249, .26);
-  --ombre: 0 24px 48px -28px rgba(51, 83, 108, .36);
-  --bouton-fond: #1F2E3B;
-  --bouton-texte: #F4F7F9;
-}
-
-/* (Anciennes propositions du 18/11, plus proposées) /* Proposition B · Bordeaux Velours : le feutre rouge des marteaux, chaud et intime */
-[data-palette="bordeaux"] {
-  --fond: #F7F1EA;            /* crème rosée */
-  --fond-2: #EFE3D6;          /* sable */
-  --encre: #2E1A1A;           /* brun d'ébène */
-  --encre-douce: #6E5550;     /* taupe */
-  --em: #8B2A2E;              /* rouge feutre profond */
-  --accent: #B9473A;          /* rouge feutre */
-  --nuit: #5C1A25;            /* bordeaux */
-  --profond: #5C1A25;
-  --sur-sombre: #F7F1EA;
-  --sur-sombre-doux: rgba(247, 241, 234, .78);
-  --accent-sur-sombre: #E7B8A6;  /* rose poudré */
-  --trait: rgba(46, 26, 26, .15);
-  --trait-sur-sombre: rgba(247, 241, 234, .24);
-  --ombre: 0 24px 48px -28px rgba(92, 26, 37, .38);
-  --bouton-fond: #5C1A25;
-  --bouton-texte: #F7F1EA;
-}
-
-/* Proposition C · Cobalt Lumière : papier blanc, graphite et bleu cobalt, clair et contemporain */
-[data-palette="cobalt"] {
-  --fond: #FBFBF8;            /* papier */
-  --fond-2: #EFEFEA;          /* gris perle */
-  --encre: #17181C;           /* graphite */
-  --encre-douce: #55575E;     /* gris acier */
-  --em: #2442B0;              /* bleu cobalt */
-  --accent: #3C5BD6;          /* cobalt clair */
-  --nuit: #2442B0;
-  --profond: #2442B0;
-  --sur-sombre: #FBFBF8;
-  --sur-sombre-doux: rgba(251, 251, 248, .84);
-  --accent-sur-sombre: #C8D2F6;  /* bleu poudré */
-  --trait: rgba(23, 24, 28, .14);
-  --trait-sur-sombre: rgba(251, 251, 248, .3);
-  --ombre: 0 24px 48px -28px rgba(36, 66, 176, .32);
-  --bouton-fond: #17181C;
-  --bouton-texte: #FBFBF8;
-}
-
 /* ---------- Typographies ---------- */
 
 /* Classique : Cormorant Garamond + Manrope, fine et éditoriale */
@@ -137,43 +45,12 @@
   --em-style: italic;
 }
 
-/* Couture : Bodoni Moda + Jost, très contrastée, esprit maison de couture */
-[data-typo="couture"] {
-  --titres: "Bodoni Moda", "Didot", "Times New Roman", serif;
-  --texte: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --titre-graisse: 400;
-  --titre-echelle: .84;
-  --titre-interlettrage: -.025em;
-  --titre-interligne: 1.08;
-  --em-style: italic;
-}
-
-/* Contemporaine : Cabinet Grotesk + Switzer, sans empattement, nette et actuelle */
-[data-typo="contemporaine"] {
-  --titres: "Cabinet Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --texte: "Switzer", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --titre-graisse: 500;
-  --titre-echelle: .8;
-  --titre-interlettrage: -.035em;
-  --titre-interligne: 1.02;
-  --em-style: normal;
-}
-[data-typo="contemporaine"] body { font-synthesis: none; }
-
 
 :root {
   --marge: clamp(20px, 5vw, 72px);
-  --bandeau: 64px;
+  --bandeau: 0px;  /* pas de bandeau de maquette sur le site */
   --entete: 72px;
   --courbe: cubic-bezier(.22, .61, .36, 1);
-}
-
-/* Passage d'une palette à l'autre : fondu doux, sans flash */
-html.changement-palette *,
-html.changement-palette *::before,
-html.changement-palette *::after {
-  transition: background-color .9s var(--courbe), color .9s var(--courbe), border-color .9s var(--courbe),
-              fill .9s var(--courbe), stroke .9s var(--courbe), box-shadow .9s var(--courbe) !important;
 }
 
 /* ---------- Base ---------- */
@@ -211,13 +88,6 @@ main section { position: relative; }
 .titre em { font-style: var(--em-style); color: var(--em); }
 .titre--hero { font-size: calc(clamp(46px, 7.4vw, 108px) * var(--titre-echelle)); line-height: calc(var(--titre-interligne) - .06); }
 /* Les petits titres et chiffres suivent aussi la typographie choisie */
-[data-typo="couture"] .carte h3, [data-typo="couture"] .adsilent__etapes h3, [data-typo="couture"] .jalons__date,
-[data-typo="couture"] .references li, [data-typo="couture"] .communes, [data-typo="couture"] .contact__infos dd { font-size: .86em; }
-[data-typo="contemporaine"] .carte h3, [data-typo="contemporaine"] .adsilent__etapes h3, [data-typo="contemporaine"] .jalons__date,
-[data-typo="contemporaine"] .references li, [data-typo="contemporaine"] .communes, [data-typo="contemporaine"] .contact__infos dd { font-weight: 500; letter-spacing: -.02em; }
-[data-typo="contemporaine"] .references li, [data-typo="contemporaine"] .communes { font-size: .9em; }
-[data-typo="contemporaine"] .carte__num, [data-typo="contemporaine"] .adsilent__etapes span,
-[data-typo="contemporaine"] .legende span, [data-typo="contemporaine"] .zone__var { font-style: normal; font-weight: 500; }
 
 .ligne { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
 .ligne > span { display: block; }
@@ -475,7 +345,7 @@ main section { position: relative; }
 
 /* ---------- Téléphone ---------- */
 @media (max-width: 760px) {
-  :root { --bandeau: 58px; --entete: 60px; }
+  :root { --bandeau: 0px; --entete: 60px; }
   body { font-size: 16px; padding-bottom: 76px; }
   .entete { position: relative; top: 0; }
   .entete .bouton--petit { display: none; }
@@ -617,7 +487,6 @@ a.carte { color: inherit; text-decoration: none; }
 .photo--detail { aspect-ratio: 4 / 5; width: 100%; max-width: 440px; }
 .photo--etroite { max-width: 300px; aspect-ratio: auto; }
 .photo--haut img { object-position: 60% 0%; }
-[data-typo="contemporaine"] .detail__num { font-style: normal; font-weight: 500; }
 
 /* ---------- Parcours : références sur leur propre section ---------- */
 .references-section { padding: clamp(64px, 8vw, 120px) var(--marge); background: var(--fond-2); }
@@ -626,7 +495,6 @@ a.carte { color: inherit; text-decoration: none; }
 /* ---------- Silencieux et connecté : deux volets ---------- */
 .volets { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); padding: clamp(56px, 8vw, 120px) var(--marge); }
 .volet__num { margin: 0 0 12px; font: italic 300 32px/1 var(--titres); color: var(--encre-douce); }
-[data-typo="contemporaine"] .volet__num { font-style: normal; font-weight: 500; }
 .volet > p { max-width: 480px; color: var(--encre-douce); font-size: 17px; }
 .volet__points { list-style: none; margin: 26px 0 34px; padding: 0; }
 .volet__points li { padding: 16px 0; border-top: 1px solid var(--trait); font-size: 15px; color: var(--encre-douce); }
@@ -724,3 +592,302 @@ html.intro-active { overflow: hidden; }
 
 /* Avant le lancement de l'introduction : écran couvert, sans éclair de la page */
 html.intro-attendue body::after { content: ""; position: fixed; inset: 0; z-index: 99; background: var(--nuit); }
+
+/* =========================================================
+   Site (20/11/2026) : ajouts par rapport à la maquette
+   ========================================================= */
+
+/* Lien d'évitement (clavier, lecteurs d'écran) */
+.aller-au-contenu { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; background: var(--encre); color: var(--fond); text-decoration: none; font-size: 14px; border-radius: 3px; }
+.aller-au-contenu:focus { top: 12px; }
+
+/* Le h1 de l'accueil garde l'allure du surtitre ; la grande accroche reste un titre visuel */
+h1.surtitre { font-weight: 600; }
+
+/* Cartes des prestations : une note tirée du livret d'entretien */
+.carte p.carte__note { min-height: 0; margin-top: 14px; font: italic 300 19px/1.3 var(--titres); color: var(--encre); }
+
+/* Accueil : « Soins pour préserver l'âme de votre piano » (chiffres du livret) */
+.conseils { padding: clamp(72px, 9vw, 140px) var(--marge); background: var(--fond); text-align: center; }
+.conseils__chiffres { list-style: none; margin: 0 auto; padding: 0; max-width: 1120px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.conseils__chiffres li { padding: 8px clamp(14px, 2vw, 32px); border-left: 1px solid var(--trait); }
+.conseils__chiffres li:first-child { border-left: 0; }
+.conseils__chiffres strong { display: block; margin-bottom: 10px; font: 300 calc(clamp(36px, 4vw, 56px) * var(--titre-echelle))/1 var(--titres); font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; letter-spacing: var(--titre-interlettrage); color: var(--encre); white-space: nowrap; }
+.conseils__chiffres span { display: block; max-width: 220px; margin: 0 auto; font-size: 14.5px; line-height: 1.55; color: var(--encre-douce); }
+.conseils__lien { margin: clamp(36px, 4vw, 56px) 0 0; }
+
+/* Accueil : communes en ligne, plus discrètes que sur la page Zone */
+.communes--accueil { max-width: 860px; font-size: clamp(21px, 2.3vw, 30px); gap: 2px .9em; }
+.zone--accueil .zone__var { margin-top: 26px; }
+
+/* Prestations : texte du livret dans chaque prestation */
+.livret { max-width: 520px; margin: 26px 0 0; padding: 4px 0 4px 22px; border-left: 1px solid var(--accent); }
+.livret p { margin: 0 0 12px; font-size: 15.5px; color: var(--encre-douce); }
+.livret .livret__titre { font: italic 300 23px/1.3 var(--titres); color: var(--encre); }
+.livret .a-valider { margin-top: 6px; }
+
+/* Prestations : encart de conseils */
+.soins { padding: clamp(64px, 8vw, 120px) var(--marge); background: var(--fond-2); }
+.soins__grille { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); max-width: 1120px; }
+.soins__bloc h3 { margin: 0 0 14px; font: 300 calc(clamp(28px, 2.8vw, 38px) * var(--titre-echelle))/1.1 var(--titres); }
+.soins__bloc p { margin: 0 0 12px; color: var(--encre-douce); }
+.soins__bloc ul { margin: 16px 0 0; padding: 0; list-style: none; }
+.soins__bloc li { padding: 12px 0; border-top: 1px solid var(--trait); color: var(--encre-douce); font-size: 15.5px; }
+
+/* Mentions légales */
+.mentions { max-width: 760px; padding: 0 var(--marge) clamp(64px, 8vw, 120px); }
+.mentions h2 { margin: 40px 0 10px; font: 300 calc(30px * var(--titre-echelle))/1.2 var(--titres); }
+.mentions p { color: var(--encre-douce); }
+.a-confirmer { padding: 0 6px; border: 1px dashed var(--accent); border-radius: 3px; font-size: .92em; }
+
+@media (max-width: 1024px) {
+  .conseils__chiffres { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
+  .conseils__chiffres li:nth-child(3) { border-left: 0; }
+}
+@media (max-width: 760px) {
+  .conseils__chiffres { grid-template-columns: 1fr; row-gap: 0; }
+  .conseils__chiffres li { border-left: 0; border-top: 1px solid var(--trait); padding: 24px 0; }
+  .conseils__chiffres li:first-child { border-top: 0; }
+  .soins__grille { grid-template-columns: 1fr; }
+}
+
+/* Ligne de son livret d'entretien : Accord · Réparation · Entretien · Réglages · Harmonisation · Pose de boîtiers AdSilent · Devis sur mesure */
+.savoir-faire { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 0; margin: -14px 0 32px; max-width: 520px; font: 600 11px/1.6 var(--texte); letter-spacing: .14em; text-transform: uppercase; color: var(--encre-douce); }
+.savoir-faire span:not(:last-child)::after { content: "·"; margin: 0 .7em; color: var(--accent); }
+.savoir-faire .savoir-faire__devis { font: italic 300 18px/1.2 var(--titres); letter-spacing: 0; text-transform: none; color: var(--encre); }
+.savoir-faire--pied { margin: 10px 0 0; max-width: 360px; color: inherit; opacity: .8; }
+.savoir-faire--pied .savoir-faire__devis { color: inherit; }
+.pied__metier p { margin: 0; }
+
+/* Questions fréquentes (page Prestations) : <details>, sans JavaScript */
+.faq { padding: clamp(64px, 8vw, 120px) var(--marge); }
+.faq__liste { max-width: 860px; border-top: 1px solid var(--trait); }
+.faq__question { border-bottom: 1px solid var(--trait); }
+.faq__question summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 0; cursor: pointer; list-style: none; }
+.faq__question summary::-webkit-details-marker { display: none; }
+.faq__question h3 { margin: 0; font: 300 calc(clamp(21px, 2vw, 27px) * var(--titre-echelle))/1.25 var(--titres); font-variant-numeric: lining-nums; }
+.faq__signe { position: relative; flex: 0 0 14px; height: 14px; }
+.faq__signe::before, .faq__signe::after { content: ""; position: absolute; left: 0; top: 6.5px; width: 14px; height: 1px; background: var(--accent); transition: transform .4s var(--courbe); }
+.faq__signe::after { transform: rotate(90deg); }
+.faq__question[open] .faq__signe::after { transform: rotate(0); }
+.faq__question p { max-width: 680px; margin: 0 0 24px; color: var(--encre-douce); }
+
+/* Second livret (20/11) : sous-titres dans les prestations, accroche AdSilent, produit et acoustique */
+.livret h3.livret__titre { margin: 18px 0 8px; font-weight: 300; }
+.livret h3.livret__titre:first-child { margin-top: 0; }
+.volet > p.volet__accroche { margin: 0 0 12px; font: italic 300 26px/1.3 var(--titres); color: var(--encre); }
+.soins__produit { padding: 14px 18px; background: var(--fond); border-left: 1px solid var(--accent); }
+.soins__bloc strong { color: var(--encre); font-weight: 600; }
+.soins__grille { grid-template-columns: repeat(3, 1fr); max-width: 1240px; }
+@media (max-width: 1024px) { .soins__grille { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px) { .soins__grille { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   Animations de l'accueil (20/11/2026), inspirées de 21st.dev et recodées en GSAP
+   ========================================================= */
+
+/* Bandeau des savoir-faire qui défile, entre deux « cordes » */
+.defile { position: relative; overflow: hidden; padding: clamp(22px, 3vw, 34px) 0; background: var(--fond); border-top: 1px solid var(--accent); border-bottom: 1px solid var(--accent); }
+.defile::before, .defile::after { content: ""; position: absolute; top: 0; bottom: 0; width: 12vw; z-index: 1; pointer-events: none; }
+.defile::before { left: 0; background: linear-gradient(90deg, var(--fond), transparent); }
+.defile::after { right: 0; background: linear-gradient(-90deg, var(--fond), transparent); }
+.defile__piste { display: flex; width: max-content; will-change: transform; }
+.defile__groupe { display: flex; align-items: baseline; flex-shrink: 0; white-space: nowrap; }
+.defile__groupe span { font: 300 calc(clamp(30px, 4.4vw, 62px) * var(--titre-echelle))/1.1 var(--titres); letter-spacing: var(--titre-interlettrage); color: var(--encre); }
+.defile__groupe em { font-style: italic; color: var(--em); }
+.defile__groupe i { margin: 0 .55em; font: 300 clamp(30px, 4.4vw, 62px)/1 var(--titres); font-style: normal; color: var(--accent); }
+
+/* Texte « Bienvenue » éclairé mot à mot */
+.texte-eclaire .mot { display: inline; }
+.texte-eclaire { color: var(--encre); }
+
+/* Chiffres qui montent : largeur fixe pour qu'ils ne « sautent » pas */
+.conseils__chiffres strong [data-compte] { font-variant-numeric: lining-nums tabular-nums; }
+/* Les chiffres animés restent dans la ligne du grand chiffre (la règle « span » plus haut vise la légende) */
+.conseils__chiffres strong span { display: inline; max-width: none; margin: 0; font: inherit; line-height: inherit; color: inherit; }
+
+/* =========================================================
+   20/11 (2e passe) : accueil moins « gabarit », plus musical et précis
+   ========================================================= */
+
+/* Prestations « en partition » : 4 lignes séparées par des cordes laiton */
+.portee { position: relative; max-width: 1240px; }
+.corde--portee { width: 100%; height: 24px; margin: 0; }
+.portee__ligne {
+  display: grid; grid-template-columns: 56px minmax(max-content, 1.05fr) minmax(0, 1.2fr) minmax(150px, .7fr) 28px;
+  align-items: center; gap: clamp(16px, 2.4vw, 36px); padding: clamp(14px, 2vw, 26px) 0;
+  color: inherit; text-decoration: none;
+}
+.portee__num { font: italic 300 26px/1 var(--titres); color: var(--encre-douce); transition: color .5s var(--courbe); }
+.portee__nom {
+  margin: 0; overflow: hidden; padding-bottom: .08em;
+  font: 300 calc(clamp(34px, 4.3vw, 64px) * var(--titre-echelle))/1.08 var(--titres); letter-spacing: var(--titre-interlettrage);
+  transition: transform .8s var(--courbe);
+}
+.portee__nom span { display: inline-block; white-space: nowrap; }
+.portee__texte { margin: 0; max-width: 400px; font-size: 15px; line-height: 1.65; color: var(--encre-douce); }
+.portee__note { font: 600 10.5px/1.6 var(--texte); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.portee__fleche { justify-self: end; font-size: 20px; color: var(--encre); transition: transform .7s var(--courbe); }
+.portee__ligne:hover .portee__nom, .portee__ligne:focus-visible .portee__nom { transform: translateX(18px); }
+.portee__ligne:hover .portee__num { color: var(--accent); }
+.portee__ligne:hover .portee__fleche { transform: translateX(8px); }
+.portee__ligne:focus-visible { outline-offset: 6px; }
+
+/* La photo qui suit le curseur (ordinateur seulement) */
+.portee__apercu {
+  position: absolute; left: 0; top: 0; z-index: 3; width: clamp(200px, 17vw, 260px); aspect-ratio: 4 / 5;
+  overflow: hidden; pointer-events: none; visibility: hidden; background: var(--fond-2); box-shadow: var(--ombre);
+}
+.portee__apercu img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+@media (hover: none), (pointer: coarse) { .portee__apercu { display: none; } }
+
+@media (max-width: 900px) {
+  .portee__ligne { grid-template-columns: 40px 1fr 24px; gap: 6px 16px; padding: 18px 0; }
+  .portee__num { grid-column: 1; grid-row: 1; font-size: 21px; }
+  .portee__nom { grid-column: 2; grid-row: 1; }
+  .portee__fleche { grid-column: 3; grid-row: 1; }
+  .portee__texte { grid-column: 2; grid-row: 2; }
+  .portee__note { grid-column: 2; grid-row: 3; }
+}
+
+/* L'accordeur sur la photo du haut */
+.diapason {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; display: flex; align-items: center; gap: 16px;
+  padding: 56px 22px 18px 92px; background: linear-gradient(rgba(24, 59, 66, 0), rgba(24, 59, 66, .78));
+  color: #F5F1E8; font: 600 10px/1 var(--texte); letter-spacing: .18em; text-transform: uppercase; pointer-events: none;
+}
+.diapason__echelle { position: relative; flex: 1; height: 22px; display: flex; justify-content: space-between; align-items: flex-end; }
+.diapason__echelle i { display: block; width: 1px; height: 7px; background: rgba(245, 241, 232, .55); }
+.diapason__echelle i:nth-child(5n+1) { height: 12px; background: rgba(245, 241, 232, .8); }
+.diapason__echelle .diapason__centre { height: 17px; background: #F5F1E8; transition: background-color .6s var(--courbe); }
+.diapason__aiguille { position: absolute; left: 50%; bottom: -2px; width: 1.5px; height: 26px; background: var(--accent); transform: translateX(-50%); box-shadow: 0 0 10px rgba(184, 155, 112, .9); }
+.diapason__juste { font: italic 300 19px/1 var(--titres); letter-spacing: 0; text-transform: none; color: var(--accent); }
+.diapason.est-juste .diapason__centre { background: var(--accent); }
+@media (max-width: 760px) { .diapason { padding: 40px 14px 12px; gap: 10px; font-size: 9px; } }
+
+/* =========================================================
+   20/11 (3e passe) : la photo des prestations dans SA colonne, jamais sur le texte
+   ========================================================= */
+.portee { display: grid; grid-template-columns: minmax(0, 1fr) clamp(260px, 26vw, 380px); gap: clamp(40px, 5vw, 80px); align-items: start; max-width: 1320px; }
+.portee__liste { min-width: 0; }
+.portee__ligne { grid-template-columns: 48px max-content minmax(0, 1fr) 24px; }
+.portee__nom { font-size: calc(clamp(30px, 3.6vw, 54px) * var(--titre-echelle)); }
+.portee__detail { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.portee__ligne.est-active .portee__num { color: var(--accent); }
+
+/* Les cordes très étirées : le tracé suit la vraie largeur (sinon le trait s'arrêtait à mi-chemin) */
+.corde--portee path { vector-effect: none; }
+
+/* La colonne photo : fixe pendant le défilement de la liste */
+.portee__colonne { position: sticky; top: calc(var(--entete) + 32px); }
+.portee__cadre { position: relative; margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: var(--fond); }
+.portee__cadre img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+.portee__cadre img.est-active { opacity: 1; }
+.portee__legende { display: flex; align-items: baseline; gap: 14px; margin: 18px 0 0; overflow: hidden; padding-top: 14px; border-top: 1px solid var(--accent); }
+.portee__legende span { display: inline-block; }
+.portee__legende [data-cadre-num] { font: italic 300 22px/1 var(--titres); color: var(--accent); }
+.portee__legende [data-cadre-nom] { font: 600 10.5px/1.6 var(--texte); letter-spacing: .16em; text-transform: uppercase; color: var(--encre-douce); }
+
+@media (max-width: 900px) {
+  .portee { grid-template-columns: 1fr; }
+  .portee__colonne { display: none; }
+  .portee__ligne { grid-template-columns: 40px 1fr 24px; }
+  .portee__detail { grid-column: 2; grid-row: 2; }
+}
+/* Alignement : tous les textes de droite commencent sur la même verticale (largeur du nom le plus long) */
+@supports (grid-template-columns: subgrid) {
+  .portee__liste { display: grid; grid-template-columns: 48px max-content minmax(0, 1fr) 24px; column-gap: clamp(16px, 2.4vw, 36px); }
+  .portee__liste > .corde--portee { grid-column: 1 / -1; }
+  .portee__ligne { grid-column: 1 / -1; grid-template-columns: subgrid; }
+}
+@media (max-width: 900px) {
+  .portee__liste { display: block; }
+  .portee__ligne { grid-template-columns: 40px 1fr 24px; }
+}
+
+/* 20/11 : le numéro toujours visible sans défiler, dans l'en-tête (ordinateur) et la barre du bas (téléphone) */
+.bouton--tel { gap: 9px; letter-spacing: .04em; white-space: nowrap; font-variant-numeric: lining-nums tabular-nums; }
+.bouton__icone { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.bouton__icone::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1px solid var(--accent); opacity: .6; }
+.barre-appel .bouton { white-space: nowrap; font-variant-numeric: lining-nums tabular-nums; }
+
+/* =========================================================
+   20/11 : respirations de l'accueil (ses citations ; image plein écran quand elle existe)
+   ========================================================= */
+.interlude { position: relative; display: grid; place-items: center; min-height: 82vh; padding: clamp(96px, 14vw, 200px) var(--marge); overflow: hidden; text-align: center; background: var(--fond); }
+.interlude--sombre { background: var(--nuit); color: var(--sur-sombre); }
+.interlude__contenu { position: relative; z-index: 1; margin: 0; max-width: 1100px; }
+.interlude .corde { margin: 0 auto 34px; width: min(240px, 50%); }
+.interlude--sombre .corde path, .interlude--image .corde path { stroke: var(--accent-sur-sombre); }
+.interlude__citation { margin: 0; }
+.interlude__texte {
+  margin: 0 0 30px; font-size: calc(clamp(38px, 6vw, 92px) * var(--titre-echelle)); line-height: 1.06;
+}
+.interlude--sombre .interlude__texte em, .interlude--image .interlude__texte em { color: var(--accent-sur-sombre); }
+.interlude__auteur { font: 600 10.5px/1.6 var(--texte); letter-spacing: .22em; text-transform: uppercase; color: var(--encre-douce); }
+.interlude--sombre .interlude__auteur, .interlude--image .interlude__auteur { color: var(--sur-sombre-doux); }
+.interlude--sombre .a-valider, .interlude--image .a-valider { color: var(--sur-sombre-doux); }
+
+/* Avec image plein écran : l'image derrière, un voile pétrole pour la lecture */
+.interlude--image { color: var(--sur-sombre); background: var(--nuit); min-height: 100vh; }
+.interlude__image { position: absolute; inset: 0; overflow: hidden; }
+.interlude__image img { width: 100%; height: 100%; object-fit: cover; will-change: transform; }
+.interlude__image::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(24, 59, 66, .55), rgba(24, 59, 66, .78)); }
+
+/* =========================================================
+   20/11 : TOUT le haut de page visible sans défiler (demande de Guillaume).
+   Les tailles suivent la HAUTEUR de l'écran, plus seulement sa largeur.
+   ========================================================= */
+@media (min-width: 761px) {
+  .hero {
+    height: calc(100svh - var(--entete)); min-height: 520px;
+    padding-top: clamp(14px, 4vh, 48px); padding-bottom: clamp(14px, 4vh, 48px);
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .hero__texte { max-width: 760px; }
+  .hero .surtitre { margin-bottom: clamp(8px, 1.6vh, 18px); }
+  .titre--hero { margin-bottom: clamp(6px, 1.2vh, 16px); font-size: calc(clamp(40px, min(5.6vw, 10vh), 100px) * var(--titre-echelle)); }
+  .corde--hero { margin: 0 0 clamp(10px, 2.2vh, 26px); }
+  .hero .chapo { margin-bottom: clamp(12px, 2.4vh, 30px); font-size: clamp(15px, 2.1vh, 17.5px); line-height: 1.6; max-width: 520px; }
+  .savoir-faire--hero { margin: 0 0 clamp(14px, 2.8vh, 32px); }
+  .hero .a-valider { margin-top: clamp(8px, 1.6vh, 18px); }
+
+  /* La photo prend la hauteur disponible (moins sa légende), en gardant ses proportions */
+  .hero__visuel { width: auto; justify-self: end; }
+  .photo--hero { height: calc(100svh - var(--entete) - clamp(28px, 8vh, 96px) - 76px); max-height: 680px; width: auto; aspect-ratio: 4 / 5; }
+  .hero__visuel::before { right: auto; width: 100%; height: calc(100% - 76px); aspect-ratio: auto; }
+  .hero .legende { margin-top: clamp(10px, 1.8vh, 22px); }
+  .hero .legende span { font-size: 19px; }
+}
+
+/* =========================================================
+   20/11 : ESSAI photo plein écran (page essai-plein-ecran.html, créée seulement si l'image existe)
+   ========================================================= */
+.hero--plein { position: relative; overflow: hidden; grid-template-columns: minmax(0, 1fr); align-items: center; color: var(--sur-sombre); background: var(--nuit); }
+.photo--plein { position: absolute; inset: 0; z-index: 0; margin: 0; background: var(--nuit); }
+.photo--plein picture { display: block; width: 100%; height: 100%; }
+.photo--plein img { width: 100%; height: 100%; object-fit: cover; object-position: 65% 50%; }
+.photo--plein::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(24, 59, 66, .9) 0%, rgba(24, 59, 66, .66) 36%, rgba(24, 59, 66, .12) 68%, rgba(24, 59, 66, 0) 100%),
+    linear-gradient(0deg, rgba(24, 59, 66, .55) 0%, rgba(24, 59, 66, 0) 30%);
+}
+.hero--plein .hero__texte { position: relative; z-index: 1; }
+.hero--plein .surtitre, .hero--plein .chapo, .hero--plein .savoir-faire, .hero--plein .a-valider { color: var(--sur-sombre-doux); }
+.hero--plein .titre { color: var(--sur-sombre); }
+.hero--plein .titre em, .hero--plein .savoir-faire__devis { color: var(--accent-sur-sombre); }
+.hero--plein .corde path { stroke: var(--accent-sur-sombre); }
+.hero--plein .bouton--plein { background: var(--sur-sombre); border-color: var(--sur-sombre); color: var(--nuit); }
+.hero--plein .bouton--trait { color: var(--sur-sombre); border-color: rgba(245, 241, 232, .55); }
+.hero--plein .diapason { left: auto; right: var(--marge); bottom: clamp(16px, 4vh, 40px); z-index: 1; width: min(460px, 36vw); padding: 0; background: none; }
+@media (max-width: 760px) {
+  .hero--plein { min-height: calc(100svh - var(--entete)); align-items: end; padding-bottom: 72px; }
+  .photo--plein img { object-position: 50% 50%; }
+  .photo--plein::after { background: linear-gradient(0deg, rgba(24, 59, 66, .94) 0%, rgba(24, 59, 66, .72) 52%, rgba(24, 59, 66, .12) 100%); }
+  .hero--plein .diapason { left: var(--marge); right: var(--marge); width: auto; bottom: 18px; }
+}
+/* Essai plein écran, téléphone : le texte occupe toute la hauteur, le voile aussi */
+@media (max-width: 760px) {
+  .photo--plein::after { background: linear-gradient(0deg, rgba(24, 59, 66, .94) 0%, rgba(24, 59, 66, .78) 55%, rgba(24, 59, 66, .7) 100%); }
+}
