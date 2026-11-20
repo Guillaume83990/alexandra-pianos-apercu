@@ -832,7 +832,8 @@ h1.surtitre { font-weight: 600; }
 .interlude--image { color: var(--sur-sombre); background: var(--nuit); min-height: 100vh; }
 .interlude__image { position: absolute; inset: 0; overflow: hidden; }
 .interlude__image img { width: 100%; height: 100%; object-fit: cover; will-change: transform; }
-.interlude__image::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(24, 59, 66, .55), rgba(24, 59, 66, .78)); }
+/* 20/11 soir : voile allégé sur les bords (retour d'Alexandra « un peu sombre ») ; avant : .55 au centre, .78 sur les bords */
+.interlude__image::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(24, 59, 66, .74) 0%, rgba(24, 59, 66, .58) 36%, rgba(24, 59, 66, .3) 100%); }
 
 /* =========================================================
    20/11 : TOUT le haut de page visible sans défiler (demande de Guillaume).
@@ -870,8 +871,9 @@ h1.surtitre { font-weight: 600; }
 .photo--plein::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(24, 59, 66, .9) 0%, rgba(24, 59, 66, .66) 36%, rgba(24, 59, 66, .12) 68%, rgba(24, 59, 66, 0) 100%),
-    linear-gradient(0deg, rgba(24, 59, 66, .55) 0%, rgba(24, 59, 66, 0) 30%);
+    /* 20/11 soir : voile allégé (retour d'Alexandra « un peu sombre ») ; avant : .9 / .66 à 36 % / .12 à 68 % et .55 en bas */
+    linear-gradient(90deg, rgba(24, 59, 66, .86) 0%, rgba(24, 59, 66, .66) 36%, rgba(24, 59, 66, .4) 50%, rgba(24, 59, 66, .06) 68%, rgba(24, 59, 66, 0) 100%),
+    linear-gradient(0deg, rgba(24, 59, 66, .42) 0%, rgba(24, 59, 66, 0) 24%);
 }
 .hero--plein .hero__texte { position: relative; z-index: 1; }
 .hero--plein .surtitre, .hero--plein .chapo, .hero--plein .savoir-faire, .hero--plein .a-valider { color: var(--sur-sombre-doux); }
@@ -889,7 +891,8 @@ h1.surtitre { font-weight: 600; }
 }
 /* Essai plein écran, téléphone : le texte occupe toute la hauteur, le voile aussi */
 @media (max-width: 760px) {
-  .photo--plein::after { background: linear-gradient(0deg, rgba(24, 59, 66, .94) 0%, rgba(24, 59, 66, .78) 55%, rgba(24, 59, 66, .7) 100%); }
+  /* 20/11 soir : haut du voile allégé (avant : .78 à 55 % et .7 en haut) */
+  .photo--plein::after { background: linear-gradient(0deg, rgba(24, 59, 66, .92) 0%, rgba(24, 59, 66, .72) 52%, rgba(24, 59, 66, .48) 100%); }
 }
 
 /* 20/11 : son Instagram dans l'en-tête et le pied de page */
