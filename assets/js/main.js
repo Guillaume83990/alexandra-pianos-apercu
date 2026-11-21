@@ -164,8 +164,74 @@
     formulaire.addEventListener('submit', function (e) {
       e.preventDefault();
       var retour = formulaire.querySelector('.formulaire__retour');
-      if (retour) retour.textContent = 'Formulaire en cours de branchement : à la mise en ligne, votre demande arrivera directement dans la boîte d’Alexandra.';
+      if (retour) retour.textContent = 'Merci, votre lettre est prête. Formulaire en cours de branchement : à la mise en ligne, elle arrivera directement dans la boîte d’Alexandra.';
+      if (lettre) accorderLettre(true);
     });
+  }
+
+  /* ---------- Page Contact (21/11) : la lettre à compléter et son accordeur ----------
+     Chaque blanc rempli rapproche l'aiguille de « juste » ; la lettre complète, la corde vibre.
+     Les blancs prennent la largeur de ce qu'on y écrit (comme un mot dans la phrase). */
+  var lettre = document.querySelector('[data-lettre]');
+  var accord = document.querySelector('[data-accord]');
+  var accorderLettre = function () {};
+  if (lettre) {
+    var dateLettre = lettre.querySelector('[data-date]');
+    if (dateLettre) {
+      try { dateLettre.textContent = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) {}
+    }
+    var notes = Array.prototype.slice.call(lettre.querySelectorAll('[data-note]'));
+    var blancs = Array.prototype.slice.call(lettre.querySelectorAll('.blanc input, .blanc select'));
+    var mesure = document.createElement('canvas').getContext('2d');
+    var aiguille = accord && accord.querySelector('.accord__aiguille');
+    var etat = accord && accord.querySelector('[data-accord-etat]');
+    var compte = accord && accord.querySelector('[data-accord-compte]');
+    var dejaJuste = false, avant = -1;
+
+    var rempli = function (champ) {
+      var v = (champ.value || '').trim();
+      if (champ.type === 'tel') return v.replace(/\D/g, '').length >= 10;
+      return v.length > 0;
+    };
+    var ajuster = function (champ) {
+      var texte = champ.tagName === 'SELECT'
+        ? champ.options[champ.selectedIndex].text
+        : (champ.value || champ.getAttribute('placeholder') || '');
+      var style = getComputedStyle(champ);
+      mesure.font = style.fontStyle + ' ' + style.fontWeight + ' ' + style.fontSize + ' ' + style.fontFamily;
+      var supplement = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight) + (champ.tagName === 'SELECT' ? 6 : 10);
+      champ.style.width = Math.ceil(mesure.measureText(texte).width + supplement) + 'px';
+    };
+    accorderLettre = function (envoi) {
+      var n = notes.filter(rempli).length, total = notes.length;
+      blancs.forEach(function (champ) {
+        champ.closest('.blanc').classList.toggle('est-rempli', rempli(champ));
+        if (champ.tagName === 'SELECT') champ.classList.toggle('est-vide', !champ.value);
+      });
+      if (!accord) return;
+      var juste = n === total;
+      aiguille.style.left = (8 + (50 - 8) * n / total) + '%';
+      if (n !== avant && avant !== -1) {
+        accord.classList.remove('vibre'); void accord.offsetWidth; accord.classList.add('vibre');
+      }
+      avant = n;
+      accord.classList.toggle('est-juste', juste);
+      etat.textContent = juste ? 'Votre lettre est juste.' : (n === 0 ? 'Votre lettre s’accorde…' : 'Encore ' + (total - n) + (total - n > 1 ? ' mots…' : ' mot…'));
+      compte.textContent = n + ' / ' + total;
+      if ((juste && !dejaJuste) || envoi) {
+        // la corde de la lettre vibre (si les animations sont actives)
+        (typeof cordes !== 'undefined' ? cordes : []).forEach(function (c) { if (c.tendue && lettre.contains(c.svg)) c.pincer(7); });
+      }
+      dejaJuste = juste;
+    };
+    blancs.forEach(function (champ) {
+      ajuster(champ);
+      champ.addEventListener(champ.tagName === 'SELECT' ? 'change' : 'input', function () { ajuster(champ); accorderLettre(); });
+      champ.addEventListener('blur', function () { ajuster(champ); accorderLettre(); });
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { blancs.forEach(ajuster); });
+    window.addEventListener('resize', function () { blancs.forEach(ajuster); });
+    accorderLettre();
   }
 
   /* ---------- 3. Animations du site ---------- */
