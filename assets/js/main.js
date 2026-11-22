@@ -455,7 +455,9 @@
       p.appendChild(s);
       if (i < mots.length - 1) p.appendChild(document.createTextNode(' '));
     });
-    gsap.fromTo(p.querySelectorAll('.mot'), { opacity: 0.16 }, { opacity: 1, ease: 'none', stagger: 0.05,
+    // 22/11 : départ à 0,72 (au lieu de 0,16) : le mot pas encore « éclairé » reste lisible
+    // (contraste 4,75:1, norme d'accessibilité 4,5:1 ; Lighthouse accessibilité 96 → 100).
+    gsap.fromTo(p.querySelectorAll('.mot'), { opacity: 0.72 }, { opacity: 1, ease: 'none', stagger: 0.05,
       scrollTrigger: { trigger: p, start: 'top 82%', end: 'bottom 52%', scrub: 0.6 } });
   });
 

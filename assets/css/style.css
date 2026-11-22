@@ -683,7 +683,7 @@ h1.surtitre { font-weight: 600; }
 .savoir-faire { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 0; margin: -14px 0 32px; max-width: 520px; font: 600 11px/1.6 var(--texte); letter-spacing: .14em; text-transform: uppercase; color: var(--encre-douce); }
 .savoir-faire span:not(:last-child)::after { content: "·"; margin: 0 .7em; color: var(--accent); }
 .savoir-faire .savoir-faire__devis { font: italic 300 18px/1.2 var(--titres); letter-spacing: 0; text-transform: none; color: var(--encre); }
-.savoir-faire--pied { margin: 10px 0 0; max-width: 360px; color: inherit; opacity: .8; }
+.savoir-faire--pied { margin: 10px 0 0; max-width: 360px; color: inherit; } /* 22/11 : opacité .8 retirée (contraste 3,68 → 5,7:1) */
 .savoir-faire--pied .savoir-faire__devis { color: inherit; }
 .pied__metier p { margin: 0; }
 
@@ -727,7 +727,7 @@ h1.surtitre { font-weight: 600; }
 
 /* Texte « Bienvenue » éclairé mot à mot */
 .texte-eclaire .mot { display: inline; }
-.texte-eclaire { color: var(--encre); }
+.texte-eclaire, .presentation-alexandra__texte .texte-eclaire { color: var(--encre); } /* 22/11 : pétrole (la règle grise de la présentation passait devant) ; départ à 0,72 = contraste 4,75:1 */
 
 /* Chiffres qui montent : largeur fixe pour qu'ils ne « sautent » pas */
 .conseils__chiffres strong [data-compte] { font-variant-numeric: lining-nums tabular-nums; }
