@@ -640,6 +640,34 @@ h1.surtitre { font-weight: 600; }
 .mentions p { color: var(--encre-douce); }
 .a-confirmer { padding: 0 6px; border: 1px dashed var(--accent); border-radius: 3px; font-size: .92em; }
 
+/* Pages légales (22/11) : mentions légales et confidentialité */
+.legal { max-width: 780px; padding: 0 var(--marge) clamp(64px, 8vw, 120px); }
+.legal__maj { margin: 0 0 28px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--encre-douce); }
+.legal__sommaire { margin: 0 0 clamp(32px, 5vw, 56px); padding: 22px 26px; border-top: 1px solid var(--accent); border-bottom: 1px solid var(--trait); background: var(--fond-2); }
+.legal__sommaire ol { margin: 0; padding: 0 0 0 1.4em; columns: 2; column-gap: 40px; }
+.legal__sommaire li { padding: 4px 0; break-inside: avoid; color: var(--encre-douce); }
+.legal__sommaire a { color: var(--encre); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .3s var(--courbe); }
+.legal__sommaire a:hover, .legal__sommaire a:focus-visible { border-bottom-color: var(--accent); }
+.legal__section { padding: clamp(24px, 3vw, 36px) 0; border-top: 1px solid var(--trait); scroll-margin-top: calc(var(--entete) + 24px); }
+.legal__section:first-of-type { border-top: 0; padding-top: 0; }
+.legal__section h2 { margin: 0 0 14px; font: 300 calc(30px * var(--titre-echelle))/1.2 var(--titres); }
+.legal__section p { margin: 0 0 12px; color: var(--encre-douce); }
+.legal__fiche { display: grid; grid-template-columns: minmax(150px, 34%) 1fr; margin: 0; }
+.legal__fiche dt, .legal__fiche dd { margin: 0; padding: 10px 0; border-top: 1px solid var(--trait); }
+.legal__fiche dt { font-size: 14px; color: var(--encre-douce); }
+.legal__fiche dd { color: var(--encre); }
+.legal__liste { margin: 0 0 12px; padding: 0 0 0 1.1em; color: var(--encre-douce); }
+.legal__liste li { padding: 5px 0; }
+.legal__liste strong, .legal__section p strong { color: var(--encre); font-weight: 600; }
+.legal__voisins { margin: clamp(24px, 3vw, 36px) 0 0; padding-top: 22px; border-top: 1px solid var(--accent); }
+.legal__voisins [aria-current="page"] { text-decoration: none; color: var(--encre-douce); pointer-events: none; }
+@media (max-width: 640px) {
+  .legal__sommaire ol { columns: 1; }
+  .legal__fiche { grid-template-columns: 1fr; }
+  .legal__fiche dt { padding-bottom: 0; }
+  .legal__fiche dd { padding-top: 2px; border-top: 0; }
+}
+
 @media (max-width: 1024px) {
   .conseils__chiffres { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
   .conseils__chiffres li:nth-child(3) { border-left: 0; }
@@ -1138,3 +1166,8 @@ h1.surtitre { font-weight: 600; }
 .references-section__visuel { flex-direction: column; align-items: flex-end; gap: 16px; }
 .references-section__visuel .a-valider { max-width: 420px; margin: 0; }
 @media (max-width: 900px) { .references-section__visuel { align-items: flex-start; } }
+
+/* Page Silencieux et connecté (22/11) : installation en 4 étapes */
+.rendez-vous__etapes--quatre { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1100px) { .rendez-vous__etapes--quatre { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .rendez-vous__etapes--quatre { grid-template-columns: 1fr; } }
