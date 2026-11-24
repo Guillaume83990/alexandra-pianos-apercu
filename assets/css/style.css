@@ -274,6 +274,11 @@ main section { position: relative; }
   font: 300 clamp(26px, 3.4vw, 44px)/1.35 var(--titres);
 }
 .communes li { white-space: nowrap; }
+/* 24/11 : page Zone en 3 secteurs (Golfe en grand, puis côte des Maures et arrière-pays) */
+.secteur { text-align: center; }
+.secteur + .secteur { margin-top: clamp(30px, 4vw, 52px); }
+.secteur__nom { margin: 0 0 12px; }
+.communes--secteur { max-width: 1080px; font-size: clamp(22px, 2.6vw, 34px); }
 .zone__var { margin: 34px 0 0; font: italic 300 22px/1.3 var(--titres); color: var(--encre-douce); }
 
 /* ---------- Contact ---------- */
@@ -929,6 +934,8 @@ h1.surtitre { font-weight: 600; }
 .icone-reseau { width: 19px; height: 19px; display: block; }
 .lien--reseau { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; }
 .lien--reseau .icone-reseau { width: 16px; height: 16px; }
+/* 24/11 : très petits téléphones (moins de 360 px) : Facebook quitte l'en-tête (il reste dans le pied de page) */
+@media (max-width: 359px) { .entete .reseau[href*="facebook"] { display: none; } }
 /* Petits téléphones : l'en-tête se resserre pour garder Instagram, FR / EN et le menu */
 @media (max-width: 420px) {
   .entete { gap: 10px; }
