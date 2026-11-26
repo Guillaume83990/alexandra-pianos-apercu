@@ -505,6 +505,14 @@ a.carte { color: inherit; text-decoration: none; }
 .volet__points li { padding: 16px 0; border-top: 1px solid var(--trait); font-size: 15px; color: var(--encre-douce); }
 .volet__points strong { display: block; margin-bottom: 2px; font: var(--titre-graisse) 24px/1.2 var(--titres); color: var(--encre); }
 .volet .photo-a-venir { margin-top: 34px; aspect-ratio: 16 / 10; max-width: none; }
+/* 26/11 : ses vraies photos (pose AdSilent, boîtier) à la place des encadrés « Votre photo… » */
+.volet__photo { margin-top: 34px; aspect-ratio: 16 / 10; }
+/* 26/11 : photos souvenirs avec des artistes, sous la référence Boris Vian (publiées seulement avec leur accord) */
+.photos-artistes { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 20px); max-width: 640px; margin-top: clamp(28px, 4vw, 44px); }
+.photo-artiste { margin: 0; }
+/* 26/11 : le Steinway de 1900 qu'elle restaure, au-dessus de la référence Boris Vian */
+.reference-visuel { margin-bottom: clamp(28px, 4vw, 44px); }
+.photo-artiste .photo { aspect-ratio: 4 / 5; }
 .volets__contact { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; padding: 0 var(--marge) clamp(64px, 8vw, 110px); }
 .volets__contact .a-valider { margin: 0; }
 .page-tete--sombre + .ondes { margin-top: -1px; }
@@ -962,6 +970,11 @@ h1.surtitre { font-weight: 600; }
 .detail:nth-child(even) .duo__grande { margin-left: 0; margin-right: auto; }
 .detail:nth-child(even) .duo__petite { left: auto; right: 0; }
 .photo--large { width: 100%; max-width: 640px; aspect-ratio: 3 / 2; }
+/* 25/11 : ses vraies photos de références, avec une légende SOUS l'image */
+.photo-legendee { width: 100%; max-width: 640px; }
+.photo-legendee .photo--large { max-width: none; }
+.photo-legendee__texte { margin: 12px 0 0; font: italic 300 18px/1.35 var(--titres); color: var(--encre-douce); }
+.photo-legendee__texte::before { content: ""; display: inline-block; width: 22px; height: 1px; margin: 0 10px 0 0; vertical-align: middle; background: var(--accent); }
 .details--suite { padding-top: clamp(24px, 3vw, 40px); }
 .details--suite .detail:last-child { border-bottom: 0; }
 
